@@ -33,11 +33,13 @@ def pay(client, message):
         'Authorization': f'Bearer {TRIPAY_API_KEY}'
     }
     payload = {
-        "method": "your_payment_method",  # Misalnya 'bank_transfer'
+        "method": "qris",  # Menggunakan QRIS
         "amount": amount,
         "merchant_ref": payment_id,
         "customer_name": message.from_user.first_name,
         "email": message.from_user.email if message.from_user.email else "",  # Jika ada
+        "expired_time": "2023-12-31 23:59:59",  # Set waktu kedaluwarsa, contoh
+        "note": "Pembayaran untuk akses grup selama 1 jam"  # Catatan pembayaran
     }
 
     # Melakukan permintaan pembayaran ke API Tripay
@@ -45,7 +47,7 @@ def pay(client, message):
     data = response.json()
 
     if data.get('success'):
-        message.reply(f"Pembayaran berhasil! Link: {data['data']['checkout_url']}")
+        message.reply(f"Pembayaran berhasil! Link QRIS: {data['data']['checkout_url']}")
         
         # Simpan detail pembayaran ke MongoDB
         payment_data = {
