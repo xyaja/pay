@@ -36,8 +36,7 @@ def pay(client, message):
         "method": "qris",  # Menggunakan QRIS
         "amount": amount,
         "merchant_ref": payment_id,
-        "customer_name": message.from_user.first_name,
-        "email": message.from_user.email if message.from_user.email else "",  # Jika ada
+        "customer_name": message.from_user.first_name,  # Hanya menggunakan nama depan pengguna
         "expired_time": "2023-12-31 23:59:59",  # Set waktu kedaluwarsa, contoh
         "note": "Pembayaran untuk akses grup selama 1 jam"  # Catatan pembayaran
     }
