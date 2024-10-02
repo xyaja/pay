@@ -47,13 +47,19 @@ def pay(client, message):
     data = response.json()
 
     if data.get('success'):
-        message.reply(f"Pembayaran berhasil! Link QRIS: {data['data']['checkout_url']}")
+        # Kirim QRIS dan pesan
+        qris_url = data['data']['checkout_url']
+        message.reply(
+            f"Silahkan melakukan pembayaran Rp.10.000 untuk join grup.\n"
+            f"KODE PESANAN ANDA: {payment_id}\n"
+            f"Link QRIS: {qris_url}"
+        )
         
         # Simpan detail pembayaran ke MongoDB
         payment_data = {
             "user_id": user_id,
             "amount": amount,
-            "status": "pending"  # atau "paid" tergantung hasil
+            "status": "pending"  # Status awal pembayaran
         }
         payments_collection.insert_one(payment_data)
 
