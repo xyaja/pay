@@ -1,9 +1,9 @@
 # config.py
 
 # Bot Configuration
-API_ID = 'your_api_id'  # Ganti dengan API ID Anda
-API_HASH = 'your_api_hash'  # Ganti dengan API Hash Anda
-BOT_TOKEN = 'your_bot_token'  # Ganti dengan token bot Anda
+API_ID = '29726374'  # Ganti dengan API ID Anda
+API_HASH = 'ee797487083e78676bc682c2e78df5fc'  # Ganti dengan API Hash Anda
+BOT_TOKEN = '7076412312:AAEuWXMtJaNldQq012gXShXBgX3TPq-WUZY'  # Ganti dengan token bot Anda
 
 # Tripay Configuration
 TRIPAY_API_KEY = 'your_tripay_api_key'  # Ganti dengan kunci API Tripay
